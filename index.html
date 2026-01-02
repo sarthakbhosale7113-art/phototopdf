@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Photo & PDF Tool</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="app">
+  <h1>📄 Photo ↔ PDF Tool</h1>
+
+  <div class="tabs">
+    <button onclick="showTab('imgpdf')">Image → PDF</button>
+    <button onclick="showTab('pdfimg')">PDF → Image</button>
+    <button onclick="showTab('crop')">Crop Image</button>
+  </div>
+
+  <!-- IMAGE TO PDF -->
+  <div class="card" id="imgpdf">
+    <h2>Image to PDF</h2>
+    <input type="file" id="imgInput" accept="image/*">
+    <button onclick="imageToPDF()">Convert to PDF</button>
+  </div>
+
+  <!-- PDF TO IMAGE -->
+  <div class="card hidden" id="pdfimg">
+    <h2>PDF to Image</h2>
+    <input type="file" id="pdfInput" accept="application/pdf">
+    <button onclick="pdfToImage()">Convert</button>
+    <canvas id="pdfCanvas"></canvas>
+  </div>
+
+  <!-- IMAGE CROP -->
+  <div class="card hidden" id="crop">
+    <h2>Crop Image</h2>
+    <input type="file" id="cropInput" accept="image/*">
+    <img id="cropImage">
+    <button onclick="doCrop()">Crop</button>
+    <div id="cropResult"></div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
